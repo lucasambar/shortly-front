@@ -8,7 +8,7 @@ export default function Topo () {
         <Container>
             <div>
                 <Login onClick={() => navigate("/login")}>Entrar</Login>
-                <Signup onClick={() => navigate("/cadastrato")}>Cadastrar-se</Signup>
+                <Signup onClick={() => navigate("/cadastro")}>Cadastrar-se</Signup>
             </div>
         </Container>
     )
