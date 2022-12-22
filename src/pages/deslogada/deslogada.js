@@ -1,5 +1,5 @@
 import Logo from "../../components/logo"
-import Topo from "./toppo"
+import Topo from "../../components/topo"
 
 export default function DeslogadaPage () {
     return (
