@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export default function Forms (props) {
     return (
-        <Form>
+        <Form {...props}>
             {props.children}
         </Form>
     )
