@@ -26,3 +26,7 @@ export function myUrls () {
 export function deleteUrl (id) {
     return api.delete(`/urls/${id}`)
 }
+
+export function getRanking () {
+    return api.get("/ranking")
+}

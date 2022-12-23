@@ -1,7 +1,18 @@
+import { useEffect, useState } from "react"
 import styled from "styled-components"
 import trophy from "../images/trophy.png"
+import { LoadingBars } from "../constants/loading";
+import { getRanking } from "../connections/connections";
 
 export default function Ranking () {
+    const [data, setData] = useState(undefined)
+
+    useEffect(() => {
+        const promisse = getRanking()
+        promisse.then(res => setData(res.data))
+        promisse.catch(erro => console.log(erro.response.data))
+    },[])
+
     return (
         <Container>
             <Title>
@@ -10,7 +21,11 @@ export default function Ranking () {
             </Title>
 
             <ContainerLines>
-                <Line><span>1. Fulaninha</span> - 32 links - 1.703.584 visualizações</Line>
+                {data ? 
+                    data.map((info, index) => <Line><span>{index+1}. {info.name}</span> - {info.linksCount} links - {info.visitCount} visualizações</Line> )
+                : <div className="load">
+                    <LoadingBars/>
+                </div> }
             </ContainerLines>
         </Container>
     )
@@ -52,6 +67,14 @@ const ContainerLines = styled.div`
     gap: 20px;
 
     overflow-y: scroll;
+
+    .load {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
     &&::-webkit-scrollbar {
         height: 230px;
