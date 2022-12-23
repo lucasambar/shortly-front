@@ -1,3 +1,4 @@
+import { useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
 
@@ -7,7 +8,12 @@ import Topo from "../../components/topo"
 
 export default function DeslogadaPage () {
     const navigate = useNavigate()
-    
+
+    useEffect(()=>{
+        const user = localStorage.getItem("user")
+        if (user) navigate("/home")
+    },[navigate])
+
     return (
         <>
             <Topo/>

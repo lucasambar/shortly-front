@@ -3,14 +3,20 @@ import styled from "styled-components"
 
 export default function Navbar () {
     const navigate = useNavigate()
+    const {name} = JSON.parse(localStorage.getItem("user"))
+
+    function logout () {
+        localStorage.removeItem("user")
+        navigate("/")
+    }
 
     return (
         <Container>
-            <Hello>Seja bem-vindo, pessoa!</Hello>
+            <Hello>Seja bem-vindo, {name}!</Hello>
             <div>
                 <Text onClick={()=>navigate("/home")}>Home</Text>
                 <Text onClick={()=>navigate("/ranking")}>Ranking</Text>
-                <Sair>Sair</Sair>
+                <Sair onClick={logout}>Sair</Sair>
             </div>
         </Container>
     )
