@@ -4,7 +4,7 @@ import Forms from "../../components/forms";
 import Logo from "../../components/logo";
 import Topo from "../../components/topo";
 import { signin } from "../../connections/connections";
-import Loading from "../../constants/loading";
+import {Loading} from "../../constants/loading";
 
 export default function Signin () {
     const [loading, setLoading] = useState(false)

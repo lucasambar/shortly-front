@@ -1,7 +1,7 @@
 import { useState } from "react"
 import styled from "styled-components"
 import { shorten } from "../../connections/connections"
-import Loading from "../../constants/loading";
+import {Loading} from "../../constants/loading";
 
 export default function NewUrl () {
     const [url, setUrl] = useState("")
@@ -23,7 +23,7 @@ export default function NewUrl () {
 
         const promisse = shorten({url})
         promisse.then(res => {setLoading(false); setUrl("")})
-        promisse.catch(erro => setErro({placeholder:erro.res.data,borda: "#EA4F4F40"}))
+        promisse.catch(erro => setErro({placeholder:erro.res.data, borda:"#EA4F4F40"}))
     }
 
     return (

@@ -4,7 +4,7 @@ const URL = "https://shortly-keub.onrender.com";
 
 export const api = axios.create({ baseURL: URL });
 const TOKEN = JSON.parse(localStorage.getItem("user"))?.token;
-
+console.log(TOKEN)
 api.defaults.headers["Authorization"] = `Bearer ${TOKEN}`;
 
 export function signup (body) {
@@ -17,4 +17,8 @@ export function signin (body) {
 
 export function shorten (body) {
     return api.post("/urls/shorten", body)
+}
+
+export function myUrls () {
+    return api.get("/urls/me")
 }
