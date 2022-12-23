@@ -32,7 +32,7 @@ export default function HomePage () {
             <Navbar/>
             <Logo/>
             <NewUrl atualizar={atualizar}/>
-            {data ? <UrlsContainer data={data}/> : 
+            {data ? <UrlsContainer data={data} atualizar={atualizar}/> : 
             <Div>
                 <LoadingBars/>
             </Div>

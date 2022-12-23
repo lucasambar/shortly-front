@@ -1,7 +1,24 @@
 import styled from "styled-components"
 import trash from "../../images/trash.png"
+import swal from 'sweetalert';
+import { deleteUrl } from "../../connections/connections";
 
-export default function Url ({data}) {
+export default function Url ({data, atualizar}) {
+
+    function deletar () {
+        swal({
+            title: "Tem certeza?",
+            text: "Uma vez deletado, não será possível acessar esse Shorty :(",
+            icon: "warning",
+            buttons: {false: "Não, amo esse link!",
+             true: "Sim, quero que ele exploda!"},
+            dangerMode: true,
+        }).then((res) => {if (res) {
+            const promisse = deleteUrl(data.id)
+            promisse.then(atualizar)
+            promisse.catch(erro => console.log(erro.response.data))
+        }})
+    }
 
     return (
         <Container>
@@ -10,7 +27,7 @@ export default function Url ({data}) {
                 <Text>{data.shortUrl}</Text>
                 <Text>Quantidade de visitantes: {data.visitCount}</Text>
             </Infos>
-            <Delete>
+            <Delete onClick={deletar}>
                 <img src={trash} alt="delete icon"/>
             </Delete>
         </Container>

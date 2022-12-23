@@ -1,10 +1,10 @@
 import styled from "styled-components"
 import Url from "./url";
 
-export default function UrlsContainer ({data}) {
+export default function UrlsContainer ({data, atualizar}) {
     return (
         <Container>
-           {data.map((data) => <Url data={data}/>)}
+           {data.map((data) => <Url data={data} atualizar={atualizar}/>)}
         </Container>
     )
 }

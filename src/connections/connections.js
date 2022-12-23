@@ -22,3 +22,7 @@ export function shorten (body) {
 export function myUrls () {
     return api.get("/users/me")
 }
+
+export function deleteUrl (id) {
+    return api.delete(`/urls/${id}`)
+}
