@@ -5,6 +5,7 @@ import Signup from "./pages/signup/signup.js";
 import Signin from "./pages/login/signin.js";
 import HomePage from "./pages/home/homePage.js";
 import PageRanking from "./pages/ranking/pageRanking.js";
+import OpenPage from "./pages/open/openPage.js";
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Signin/>} />
           <Route path="/home" element={<HomePage/>} />
           <Route path="/ranking" element={<PageRanking/>} />
+          {/* <Route path="/o/:urlId" element={<OpenPage/>}/> */}
         </Routes>
       </BrowserRouter>
     </>

@@ -30,3 +30,7 @@ export function deleteUrl (id) {
 export function getRanking () {
     return api.get("/ranking")
 }
+
+export function redirect(param) {
+    return api.get(`/urls/open/${param}`)
+}

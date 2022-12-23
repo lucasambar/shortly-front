@@ -77,7 +77,7 @@ const Text = styled.p`
 
     display: block;
     height: 18px;
-    width: 210px;
+    width: 215px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
