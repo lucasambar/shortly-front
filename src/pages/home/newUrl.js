@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { shorten } from "../../connections/connections"
 import {Loading} from "../../constants/loading";
 
-export default function NewUrl () {
+export default function NewUrl ({atualizar}) {
     const [url, setUrl] = useState("")
     const [loading, setLoading] = useState(false)
     const [erro, setErro] = useState({
@@ -22,7 +22,7 @@ export default function NewUrl () {
         setLoading(true)
 
         const promisse = shorten({url})
-        promisse.then(res => {setLoading(false); setUrl("")})
+        promisse.then(res => {setLoading(false); setUrl(""); atualizar()})
         promisse.catch(erro => setErro({placeholder:erro.res.data, borda:"#EA4F4F40"}))
     }
 

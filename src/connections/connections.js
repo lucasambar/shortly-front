@@ -3,8 +3,8 @@ import axios from "axios";
 const URL = "https://shortly-keub.onrender.com";
 
 export const api = axios.create({ baseURL: URL });
+
 const TOKEN = JSON.parse(localStorage.getItem("user"))?.token;
-console.log(TOKEN)
 api.defaults.headers["Authorization"] = `Bearer ${TOKEN}`;
 
 export function signup (body) {
@@ -20,5 +20,5 @@ export function shorten (body) {
 }
 
 export function myUrls () {
-    return api.get("/urls/me")
+    return api.get("/users/me")
 }

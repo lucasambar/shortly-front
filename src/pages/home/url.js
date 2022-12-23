@@ -1,13 +1,14 @@
 import styled from "styled-components"
 import trash from "../../images/trash.png"
 
-export default function Url () {
+export default function Url ({data}) {
+
     return (
         <Container>
             <Infos>
-                <Text>Link</Text>
-                <Text>Shorten</Text>
-                <Text>Quantidade de visitantes: 123</Text>
+                <Text>{data.url}</Text>
+                <Text>{data.shortUrl}</Text>
+                <Text>Quantidade de visitantes: {data.visitCount}</Text>
             </Infos>
             <Delete>
                 <img src={trash} alt="delete icon"/>
@@ -59,7 +60,7 @@ const Text = styled.p`
 
     display: block;
     height: 18px;
-    max-width: 210px;
+    width: 210px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
