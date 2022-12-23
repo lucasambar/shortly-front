@@ -1,8 +1,11 @@
 import { useState } from "react"
 import styled from "styled-components"
+import { shorten } from "../../connections/connections"
+import Loading from "../../constants/loading";
 
 export default function NewUrl () {
     const [url, setUrl] = useState("")
+    const [loading, setLoading] = useState(false)
     const [erro, setErro] = useState({
         placeholder: "Links que cabem no bolso",
         borda: "#78B15940"
@@ -15,16 +18,24 @@ export default function NewUrl () {
           placeholder: "Insira uma url válida!",
           borda: "#EA4F4F40",
         }); return}
+
+        setLoading(true)
+
+        const promisse = shorten({url})
+        promisse.then(res => {setLoading(false); setUrl("")})
+        promisse.catch(erro => setErro({placeholder:erro.res.data,borda: "#EA4F4F40"}))
     }
 
     return (
         <Container>
             <form onSubmit={encurtar}>
-                <Input borda={erro.borda} type="url"
+                <Input borda={erro.borda} type="url" disabled={loading}
                 placeholder={erro.placeholder} value={url} 
                 onChange={(e) => setUrl(e.target.value)}/>
 
-                <Button type="submit">Encurtar link</Button>
+                <Button type="submit" disabled={loading}>
+                    {loading ? <Loading/> : "Encurtar link"}
+                </Button>
             </form>
         </Container>
 

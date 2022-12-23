@@ -14,3 +14,7 @@ export function signup (body) {
 export function signin (body) {
     return api.post("/signin", body)
 }
+
+export function shorten (body) {
+    return api.post("/urls/shorten", body)
+}
