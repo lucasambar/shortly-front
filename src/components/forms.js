@@ -15,9 +15,8 @@ const Form = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 25px;
 
-    margin-top: 60px;
+    margin-top: 50px;
 
     input {
         height: 60px;
@@ -28,6 +27,7 @@ const Form = styled.form`
         border: 1px solid #78B15940;
 
         padding: 20px;
+        margin-top: 20px;
 
         font-family: Lexend Deca;
         font-size: 14px;
@@ -64,5 +64,18 @@ const Form = styled.form`
 
             display: block
         }
+    }
+
+    span {
+        font-family: Lexend Deca;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 18px;
+        letter-spacing: 0em;
+        text-align: left;
+        color: #EA4F4F;
+
+        display: block;
+        margin-top: 10px;
     }
 `

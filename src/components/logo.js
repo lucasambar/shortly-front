@@ -13,7 +13,7 @@ export default function Logo () {
 }
 
 const Container = styled.div`
-    width: 100vw;
+    width: 90vw;
     display: flex;
     justify-content: center;
     margin-top: 8px;
